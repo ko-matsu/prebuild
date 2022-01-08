@@ -32,19 +32,6 @@ test('can prebuild a gyp native module for electron', function (t) {
   })
 })
 
-test('can prebuild a gyp native module for node-webkit', function (t) {
-  rm.sync(path.join(cwd, 'prebuilds'))
-  var file = 'native-v1.0.0-node-webkit-v59-' + process.platform + '-' + process.arch + '.tar.gz'
-  var prebuild = path.join(cwd, 'prebuilds', file)
-  // A quick, temporary fix for a node.js bug (https://github.com/prebuild/prebuild/pull/208#issuecomment-361108755)
-  console.log()
-  exec('npm run prebuild-node-webkit', { cwd: cwd }, function (error, stdout, stderr) {
-    t.equal(error, null)
-    t.equal(fs.existsSync(prebuild), true)
-    t.end()
-  })
-})
-
 test('can prebuild a gyp native module for node with prepack script', function (t) {
   rm.sync(path.join(cwd, 'prebuilds'))
   var file = 'native-v1.0.0-node-v57-' + process.platform + '-' + process.arch + '.tar.gz'

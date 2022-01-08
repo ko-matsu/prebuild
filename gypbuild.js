@@ -3,13 +3,7 @@ var gyp = require('./gyp')
 
 function runGyp (opts, target, cb) {
   var args = ['node', 'index.js']
-  if (opts.backend === 'node-ninja') {
-    args.push('configure')
-    args.push('build')
-    args.push('--builddir=build/' + target)
-  } else {
-    args.push('rebuild')
-  }
+  args.push('rebuild')
   if (napi.isNapiRuntime(opts.runtime)) {
     args.push('--napi_build_version=' + target)
   } else {
@@ -19,8 +13,6 @@ function runGyp (opts, target, cb) {
   if (opts.runtime === 'electron') {
     args.push('--runtime=electron')
     args.push('--dist-url=https://atom.io/download/electron')
-  } else if (opts.runtime === 'node-webkit') {
-    args.push('--runtime=node-webkit')
   } else if (opts.runtime === 'node') {
     // work around bug introduced in node 10's build https://github.com/nodejs/node-gyp/issues/1457
     args.push('--build_v8_with_gn=false')
