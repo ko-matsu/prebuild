@@ -4,7 +4,8 @@
   "description": "A command line tool for easily making prebuilt binaries for multiple versions of node, electron on a specific platform",
   "scripts": {
     "test": "verify-travis-appveyor && tape test && npm run lint",
-    "lint": "standard"
+    "lint": "standard",
+    "lintfix": "standard --fix"
   },
   "keywords": [
     "prebuilt",
@@ -28,7 +29,6 @@
     "github-from-package": "0.0.0",
     "glob": "^7.1.6",
     "minimist": "^1.1.2",
-    "mkdirp": "^1.0.4",
     "napi-build-utils": "^1.0.1",
     "node-abi": "^3.0.0",
     "node-gyp": "^8.4.1",
@@ -67,6 +67,6 @@
   },
   "homepage": "https://github.com/prebuild/prebuild",
   "engines": {
-    "node": ">=10"
+    "node": ">=12"
   }
 }

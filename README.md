@@ -206,7 +206,7 @@ prebuild [options]
 ## JavaScript API
 
 ```js
-var prebuild = require('prebuild')
+let prebuild = require('prebuild')
 ```
 
 ### .build(opts, version, cb)

@@ -1,35 +1,35 @@
-var path = require('path')
-var github = require('github-from-package')
-var ghreleases = require('ghreleases')
-var error = require('./error')
+const path = require('path')
+const github = require('github-from-package')
+const ghreleases = require('ghreleases')
+const error = require('./error')
 
 function upload (opts, cb) {
-  var pkg = opts.pkg
-  var files = opts.files
-  var gh = opts.gh || ghreleases
-  var tagPrefix = opts['tag-prefix']
+  const pkg = opts.pkg
+  const files = opts.files
+  const gh = opts.gh || ghreleases
+  const tagPrefix = opts['tag-prefix']
 
-  var url = github(pkg)
+  const url = github(pkg)
   if (!url) {
     return process.nextTick(function () {
       cb(error.noRepository())
     })
   }
 
-  var user = url.split('/')[3]
-  var repo = url.split('/')[4]
-  var auth = { user: 'x-oauth', token: opts.upload }
-  var tag = `${tagPrefix}${pkg.version}`
+  const user = url.split('/')[3]
+  const repo = url.split('/')[4]
+  const auth = { user: 'x-oauth', token: opts.upload }
+  const tag = `${tagPrefix}${pkg.version}`
 
   gh.create(auth, user, repo, { tag_name: tag }, function () {
     gh.getByTag(auth, user, repo, tag, function (err, release) {
       if (err) return cb(err)
 
-      var assets = release.assets.map(function (asset) {
+      const assets = release.assets.map(function (asset) {
         return asset.name
       })
 
-      var filtered = files.filter(function (file) {
+      const filtered = files.filter(function (file) {
         return !assets.some(function (asset) {
           return asset === path.basename(file)
         })

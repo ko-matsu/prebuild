@@ -1,8 +1,8 @@
-var napi = require('napi-build-utils')
-var gyp = require('./gyp')
+const napi = require('napi-build-utils')
+const gyp = require('./gyp')
 
 function runGyp (opts, target, cb) {
-  var args = ['node', 'index.js']
+  const args = ['node', 'index.js']
   args.push('rebuild')
   if (napi.isNapiRuntime(opts.runtime)) {
     args.push('--napi_build_version=' + target)
@@ -38,7 +38,7 @@ function runGyp (opts, target, cb) {
 }
 
 function configurePreGyp (command, opts) {
-  var binary = opts.pkg.binary
+  const binary = opts.pkg.binary
   if (binary && binary.module_name) {
     command.args.push('-Dmodule_name=' + binary.module_name)
   }
