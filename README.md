@@ -48,12 +48,6 @@ To build against Electron headers, do:
 prebuild -t 1.4.10 -r electron
 ```
 
-To build against NW.js headers, do:
-
-```
-prebuild -t 0.26.6 -r node-webkit
-```
-
 See [`allTargets`](https://github.com/lgeiger/node-abi#usage) for all available versions.
 
 For more options run `prebuild --help`. The prebuilds created are compatible with [node-pre-gyp](https://github.com/mapbox/node-pre-gyp)
@@ -191,7 +185,7 @@ $ prebuild -h
 prebuild [options]
 
   --target      -t  version     (version to build or install for)
-  --runtime     -r  runtime     (Node runtime [node, napi, electron or node-webkit] to build or install for, default is node)
+  --runtime     -r  runtime     (Node runtime [node, napi, electron] to build or install for, default is node)
   --all                         (prebuild for all known abi versions)
   --upload      -u  [gh-token]  (upload prebuilds to github)
   --upload-all  -u  [gh-token]  (upload all files from ./prebuilds folder to github)
@@ -212,7 +206,7 @@ prebuild [options]
 ## JavaScript API
 
 ```js
-var prebuild = require('prebuild')
+let prebuild = require('prebuild')
 ```
 
 ### .build(opts, version, cb)
@@ -222,7 +216,7 @@ Options:
 - `.log` (optional)
 - `.preinstall` (optional)
 - `.gyp` Provide a custom `node-gyp` instance (optional)
-- `.backend` Provide a custom `node-gyp` instance via string. Alternatives are `'node-gyp'`, `'node-ninja'`, `'nw-gyp'` and `'cmake-js'` (optional, defaults to `'node-gyp'`)
+- `.backend` Provide a custom `node-gyp` instance via string. Alternatives are `'node-gyp'` and `'cmake-js'` (optional, defaults to `'node-gyp'`)
 - `.args` Additional command line arguments to `node-gyp` (optional)
 - `.debug` Pass in `--debug` on command line to gyp backend (optional)
 
