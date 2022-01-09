@@ -1,11 +1,11 @@
-var minimist = require('minimist')
-var targets = require('node-abi').supportedTargets
-var detectLibc = require('detect-libc')
-var napi = require('napi-build-utils')
+const minimist = require('minimist')
+const targets = require('node-abi').supportedTargets
+const detectLibc = require('detect-libc')
+const napi = require('napi-build-utils')
 
-var libc = process.env.LIBC || (detectLibc.isNonGlibcLinux && detectLibc.family) || ''
+const libc = process.env.LIBC || (detectLibc.isNonGlibcLinux && detectLibc.family) || ''
 
-var rc = require('rc')('prebuild', {
+const rc = require('rc')('prebuild', {
   target: process.versions.node,
   runtime: 'node',
   arch: process.arch,
@@ -51,9 +51,9 @@ if (napi.isNapiRuntime(rc.runtime) && rc.target === process.versions.node) {
 }
 
 if (rc.target) {
-  var arr = [].concat(rc.target)
+  const arr = [].concat(rc.target)
   rc.prebuild = []
-  for (var k = 0, len = arr.length; k < len; k++) {
+  for (let k = 0, len = arr.length; k < len; k++) {
     if (!napi.isNapiRuntime(rc.runtime) || napi.isSupportedVersion(arr[k])) {
       rc.prebuild.push({
         runtime: rc.runtime,
