@@ -21,7 +21,7 @@
     "node-api"
   ],
   "dependencies": {
-    "cmake-js": "github:cryptogarageinc/cmake-js#semver:^6.3.1",
+    "cmake-js": "github:cryptogarageinc/cmake-js#semver:^6.3.2",
     "detect-libc": "^1.0.3",
     "each-series-async": "^1.0.1",
     "execspawn": "^1.0.1",
