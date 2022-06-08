@@ -74,8 +74,8 @@ test('strip gets empty args for other', function (t) {
 test('strip gets special args for linux on multiple files', function (t) {
   t.plan(5)
   const collectedFiles = ['foo.node', 'bar.node']
-  var currentFileIndex = 0
-  var _spawn = util.spawn
+  let currentFileIndex = 0
+  const _spawn = util.spawn
   util.spawn = function (cmd, args, cb) {
     t.equal(cmd, 'strip', 'correct cmd')
     const expectedFile = collectedFiles[currentFileIndex]
@@ -83,7 +83,7 @@ test('strip gets special args for linux on multiple files', function (t) {
     process.nextTick(cb)
     currentFileIndex++
   }
-  var _platform = util.platform
+  const _platform = util.platform
   util.platform = function () { return 'linux' }
   strip(collectedFiles, function (err) {
     util.spawn = _spawn
