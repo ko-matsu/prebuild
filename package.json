@@ -1,6 +1,6 @@
 {
   "name": "prebuild",
-  "version": "11.0.1",
+  "version": "11.0.3",
   "description": "A command line tool for easily making prebuilt binaries for multiple versions of node, electron on a specific platform",
   "scripts": {
     "test": "verify-travis-appveyor && tape test && npm run lint",
@@ -21,8 +21,8 @@
     "node-api"
   ],
   "dependencies": {
-    "cmake-js": "github:cryptogarageinc/cmake-js#semver:^6.3.1",
-    "detect-libc": "^1.0.3",
+    "cmake-js": "github:cryptogarageinc/cmake-js#semver:^6.3.2",
+    "detect-libc": "^2.0.0",
     "each-series-async": "^1.0.1",
     "execspawn": "^1.0.1",
     "ghreleases": "^3.0.2",
