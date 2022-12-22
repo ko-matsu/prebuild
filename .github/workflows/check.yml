@@ -19,7 +19,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-22.04]
+        os: ['windows-2022', 'ubuntu-22.04']
+        # macos is not supported old electron
         node: [12, 14, 16, 18]
 
     steps:
