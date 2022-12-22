@@ -70,9 +70,9 @@ function basicSetup (t, opts) {
   const tagPrefix = opts.tagPrefix || 'v'
   const files = ['foo.tar.gz', 'bar.tar.gz', 'baz.tar.gz']
   return {
-    pkg: pkg,
+    pkg,
     upload: 't000k3n',
-    files: files,
+    files,
     'tag-prefix': tagPrefix,
     gh: {
       create: function (auth, user, repo, opts, cb) {
@@ -87,7 +87,7 @@ function basicSetup (t, opts) {
         t.equal(user, 'ralphtheninja', 'correct user')
         t.equal(repo, 'a-native-module', 'correct repo')
         t.equal(tag, `${tagPrefix}${pkg.version}`, 'correct tag')
-        process.nextTick(function () { cb(null, { assets: assets }) })
+        process.nextTick(function () { cb(null, { assets }) })
       },
       uploadAssets: function (auth, user, repo, ref, _files, cb) {
         t.deepEqual(auth, { user: 'x-oauth', token: 't000k3n' }, 'correct auth')

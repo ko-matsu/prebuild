@@ -12,7 +12,7 @@ test('can prebuild a gyp native module for node', function (t) {
   const prebuild = path.join(cwd, 'prebuilds', file)
   // A quick, temporary fix for a node.js bug (https://github.com/prebuild/prebuild/pull/208#issuecomment-361108755)
   console.log()
-  exec('npm run prebuild', { cwd: cwd }, function (error, stdout, stderr) {
+  exec('npm run prebuild', { cwd }, function (error, stdout, stderr) {
     t.equal(error, null)
     t.equal(fs.existsSync(prebuild), true)
     t.end()
@@ -25,7 +25,7 @@ test('can prebuild a gyp native module for electron', function (t) {
   const prebuild = path.join(cwd, 'prebuilds', file)
   // A quick, temporary fix for a node.js bug (https://github.com/prebuild/prebuild/pull/208#issuecomment-361108755)
   console.log()
-  exec('npm run prebuild-electron', { cwd: cwd }, function (error, stdout, stderr) {
+  exec('npm run prebuild-electron', { cwd }, function (error, stdout, stderr) {
     t.equal(error, null)
     t.equal(fs.existsSync(prebuild), true)
     t.end()
@@ -38,7 +38,7 @@ test('can prebuild a gyp native module for node with prepack script', function (
   const prebuild = path.join(cwd, 'prebuilds', file)
   // A quick, temporary fix for a node.js bug (https://github.com/prebuild/prebuild/pull/208#issuecomment-361108755)
   console.log()
-  exec('npm run prebuild-prepack', { cwd: cwd }, function (error, stdout, stderr) {
+  exec('npm run prebuild-prepack', { cwd }, function (error, stdout, stderr) {
     t.equal(error, null)
     t.equal(fs.existsSync(prebuild), true)
     t.end()

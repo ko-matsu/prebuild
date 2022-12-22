@@ -9,7 +9,7 @@ const rc = require('rc')('prebuild', {
   target: process.versions.node,
   runtime: 'node',
   arch: process.arch,
-  libc: libc,
+  libc,
   platform: process.platform,
   all: false,
   force: false,

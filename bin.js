@@ -37,7 +37,7 @@ delete process.env.NVM_IOJS_ORG_MIRROR
 delete process.env.NVM_NODEJS_ORG_MIRROR
 
 const buildLog = log.info.bind(log, 'build')
-const opts = Object.assign({}, rc, { pkg: pkg, log: log, buildLog: buildLog, argv: process.argv })
+const opts = Object.assign({}, rc, { pkg, log, buildLog, argv: process.argv })
 
 if (napi.isNapiRuntime(rc.runtime)) napi.logMissingNapiVersions(rc.target, rc.prebuild, log)
 
