@@ -9,5 +9,8 @@
         'NAPI_VERSION=<(napi_build_version)',
       ]
     }
-  ]
+  ],
+  'variables': {
+    'openssl_fips': '0'
+  }
 }

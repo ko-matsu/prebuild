@@ -17,6 +17,7 @@ jobs:
     timeout-minutes: 20
     runs-on: ${{ matrix.os }}
     strategy:
+      fail-fast: false
       matrix:
         os: [ubuntu-22.04]
         node: [12, 14, 16, 18]
@@ -24,6 +25,10 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - uses: actions/setup-node@v3
+      timeout-minutes: 1
+      with:
+        node-version: ${{ matrix.node }}
+    - uses: actions/setup-python@v3
       timeout-minutes: 1
       with:
         node-version: ${{ matrix.node }}

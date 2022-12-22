@@ -6,5 +6,8 @@
         'src/native.cc',
       ],
     }
-  ]
+  ],
+  'variables': {
+    'openssl_fips': '0'
+  }
 }
