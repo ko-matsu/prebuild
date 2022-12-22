@@ -16,7 +16,7 @@ test('missing file calls back with error', function (t) {
 })
 
 test('resulting file is a gzipped tar archive', function (t) {
-  t.plan(17)
+  t.plan(18)
   rmrf.sync(output)
 
   t.equal(fs.existsSync(output), false, 'no output folder')

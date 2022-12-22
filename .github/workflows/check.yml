@@ -18,12 +18,12 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-20.04]
-        node: [12, 14, 16]
+        os: [ubuntu-22.04]
+        node: [12, 14, 16, 18]
 
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-node@v2
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
       timeout-minutes: 1
       with:
         node-version: ${{ matrix.node }}
