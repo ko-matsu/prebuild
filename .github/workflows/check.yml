@@ -17,13 +17,19 @@ jobs:
     timeout-minutes: 20
     runs-on: ${{ matrix.os }}
     strategy:
+      fail-fast: false
       matrix:
-        os: [ubuntu-20.04]
-        node: [12, 14, 16]
+        os: ['windows-2022', 'ubuntu-22.04']
+        # macos is not supported old electron
+        node: [12, 14, 16, 18]
 
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-node@v2
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
+      timeout-minutes: 1
+      with:
+        node-version: ${{ matrix.node }}
+    - uses: actions/setup-python@v3
       timeout-minutes: 1
       with:
         node-version: ${{ matrix.node }}

@@ -99,7 +99,7 @@ test('using --tag-prefix will set the tag prefix', function (t) {
 function runRc (t, args, env, cb) {
   const cmd = 'node ' + path.resolve(__dirname, '..', 'rc.js') + ' ' + args
   env = Object.assign({}, process.env, env)
-  exec(cmd, { env: env }, function (err, stdout, stderr) {
+  exec(cmd, { env }, function (err, stdout, stderr) {
     t.error(err, 'no error')
     t.equal(stderr.length, 0, 'no stderr')
     let result
