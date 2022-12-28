@@ -21,7 +21,7 @@ jobs:
       matrix:
         os: ['windows-2022', 'ubuntu-22.04']
         # macos is not supported old electron
-        node: [12, 14, 16, 18]
+        node: [14, 16, 18]
 
     steps:
     - uses: actions/checkout@v3
@@ -29,10 +29,10 @@ jobs:
       timeout-minutes: 1
       with:
         node-version: ${{ matrix.node }}
-    - uses: actions/setup-python@v3
+    - uses: actions/setup-python@v4
       timeout-minutes: 1
       with:
-        node-version: ${{ matrix.node }}
+        python-version: '3.11'
     - name: install
       run: npm install
     - name: test

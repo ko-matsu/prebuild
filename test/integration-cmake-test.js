@@ -10,7 +10,7 @@ const cwd = path.join(__dirname, 'native-module-cmake')
 if (process.platform !== 'win32' || process.arch !== 'ia32') {
   test('can prebuild a cmake-js native module for node', function (t) {
     rm.sync(path.join(cwd, 'prebuilds'))
-    const file = 'native-v1.0.0-node-v57-' + process.platform + '-' + process.arch + '.tar.gz'
+    const file = 'native-v1.0.0-node-v83-' + process.platform + '-' + process.arch + '.tar.gz'
     const prebuild = path.join(cwd, 'prebuilds', file)
     // A quick, temporary fix for a node.js bug (https://github.com/prebuild/prebuild/pull/208#issuecomment-361108755)
     console.log()
@@ -23,7 +23,7 @@ if (process.platform !== 'win32' || process.arch !== 'ia32') {
 
   test('can prebuild a cmake-js native module for electron', function (t) {
     rm.sync(path.join(cwd, 'prebuilds'))
-    const file = 'native-v1.0.0-electron-v50-' + process.platform + '-' + process.arch + '.tar.gz'
+    const file = 'native-v1.0.0-electron-v89-' + process.platform + '-' + process.arch + '.tar.gz'
     const prebuild = path.join(cwd, 'prebuilds', file)
     // A quick, temporary fix for a node.js bug (https://github.com/prebuild/prebuild/pull/208#issuecomment-361108755)
     console.log()

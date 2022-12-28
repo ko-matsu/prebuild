@@ -4,7 +4,7 @@
   "main": "./index.js",
   "scripts": {
     "prebuild": "node ../../bin.js --backend cmake-js --runtime napi --verbose",
-    "prebuild-prepack": "node ../../bin.js --backend cmake-js --runtime napi --prepack prepack.js"
+    "prebuild-prepack": "node ../../bin.js --backend cmake-js --runtime napi --prepack prepack.js --verbose"
   },
   "binary": {
     "napi_versions": [1]
